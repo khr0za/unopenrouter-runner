@@ -1,0 +1,23 @@
+{
+  "name": "@unopenrouter/runner",
+  "version": "0.1.4",
+  "description": "Runs the Claude and Codex CLIs under your own logins for unopenrouter, on a machine of your own.",
+  "type": "module",
+  "bin": { "unopenrouter-runner": "dist/unopenrouter-runner.mjs" },
+  "engines": { "node": ">=20" },
+  "files": ["dist/unopenrouter-runner.mjs", "README.md", "LICENSE"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json && esbuild src/main.ts --bundle --platform=node --format=esm --target=node20 --outfile=dist/unopenrouter-runner.mjs --banner:js='#!/usr/bin/env node' --log-level=warning",
+    "test": "node dist/unopenrouter-runner.mjs version && node dist/unopenrouter-runner.mjs help > /dev/null"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "esbuild": "^0.25.12",
+    "typescript": "^5.9.3"
+  },
+  "license": "MIT",
+  "repository": { "type": "git", "url": "git+https://github.com/khr0za/unopenrouter-runner.git" },
+  "homepage": "https://github.com/khr0za/unopenrouter-runner#readme",
+  "bugs": { "url": "https://github.com/khr0za/unopenrouter-runner/issues" },
+  "publishConfig": { "access": "public" }
+}
